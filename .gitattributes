@@ -4,3 +4,6 @@
 
 # HTML
 *.html text eol=lf
+
+# Images
+*.ico binary
