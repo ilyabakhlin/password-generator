@@ -1,9 +1,5 @@
 @import "fonts.css";
-
-:root {
-    --white: #ffffff;
-    --border-color: #e6e1da;
-}
+@import "variables.css";
 
 html {
     font-size: 16px;
