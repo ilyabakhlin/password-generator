@@ -11,6 +11,8 @@
         </main>
     </body>
     <script>
+        const SPECIAL_CHARACTERS = ["!", "@", "#", "$", "%", "^", "&", "-", "_", "=", "+", "<", ">", "(", ")", "[", "]", "{", "}", "/"];
+
         function getCharacterLower() {
             const number = new BigUint64Array(1);
             for (const numberRandom of window.crypto.getRandomValues(number)) {
@@ -47,12 +49,19 @@
             }
         }
 
+        function getCharacterSpecial() {
+            const number = new BigUint64Array(1);
+            for (const numberRandom of window.crypto.getRandomValues(number)) {
+                return SPECIAL_CHARACTERS[numberRandom % BigInt(SPECIAL_CHARACTERS.length)];
+            }
+        }
+
         window.addEventListener("load", () => {
             window.document.querySelector("button").addEventListener("click", () => {
                 const numbers = new BigUint64Array(32);
                 const password = [];
                 for (const number of window.crypto.getRandomValues(numbers)) {
-                    const bigint = number % 3n;
+                    const bigint = number % 4n;
                     switch (bigint) {
                         case 1n:
                             password.push(getCharacterLower());
@@ -60,8 +69,11 @@
                         case 2n:
                             password.push(getCharacterUpper());
                             break;
-                        default:
+                        case 3n:
                             password.push(getNumbers());
+                            break;
+                        default:
+                            password.push(getCharacterSpecial());
                             break;
                     }
                 }
