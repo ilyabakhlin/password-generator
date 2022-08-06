@@ -13,7 +13,7 @@
                 <h1>Password Generator</h1>
                 <div>
                     <label for="password-length">Length:</label>
-                    <input id="password-length" type="number" value="8">
+                    <input id="password-length" type="number" value="32">
                 </div>
                 <button>Generate Password</button>
                 <div>
@@ -70,12 +70,10 @@
 
         window.addEventListener("load", () => {
             window.document.querySelector("button").addEventListener("click", () => {
-                const passwordLength = window.document.querySelector("input#password-length").value;
-                const length = new BigUint64Array(passwordLength);
                 const password = [];
-                for (const number of window.crypto.getRandomValues(length)) {
-                    const bigint = number % 4n;
-                    switch (bigint) {
+                const passwordLength = window.document.querySelector("input#password-length");
+                for (const number of window.crypto.getRandomValues(new BigUint64Array(passwordLength.value))) {
+                    switch (number % 4n) {
                         case 1n:
                             password.push(getCharacterLower());
                             break;
@@ -92,14 +90,11 @@
                 }
                 window.document.querySelector("p").textContent = password.join("");
             });
-        });
-
-
-        window.document.querySelector("p").addEventListener("click", (event) => {
-            if (event.target.textContent.length > 0) {
-                /* Copy the text inside the text field */
-                navigator.clipboard.writeText(event.target.textContent);
-            }
+            window.document.querySelector("p").addEventListener("click", (event) => {
+                if (event.target.textContent.length > 0) {
+                    navigator.clipboard.writeText(event.target.textContent);
+                }
+            });
         });
     </script>
 </html>
