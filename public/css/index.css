@@ -1,23 +1,24 @@
 @font-face {
-    /* lato */
-    font-family: 'Lato-Regular';
+    font-family: "Lato Regular";
     src: url(../fonts/Lato-Regular.ttf);
+}
 
-    /* lato bold */
-    font-family: 'Lato-Bold';
+@font-face {
+    font-family: "Lato Bold";
     src: url(../fonts/Lato-Bold.ttf);
 }
 
 :root {
+    --white: #ffffff;
     --border-color: #e6e1da;
 }
 
-body, input, button {
-    font-family: 'Lato-Regular';
+html {
+    font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lato-Regular';
+body, button, h1, h2, h3, h4, h5, h6, input {
+    font-family: "Lato Regular", sans-serif;
 }
 
 input, button {
@@ -31,35 +32,36 @@ input, button {
     padding: 0;
 }
 
-/* Language: css */
-/* Path: css\index.css */
 body {
     background-color: var(--border-color);
+    margin: 0;
 }
 
 main {
-    border: 3px solid #ffffff;
-    border-radius: 5px;
-    margin: auto;
-    width: fit-content;
+    align-items: center;
+    display: flex;
+    height: 64vh;
+    justify-content: center;
 }
 
 main > div {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    padding: 18px;
+    background-color: var(--white);
+    border: 0.25rem solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
     text-align: center;
-    width: 13em;
+    width: 24rem;
 }
 
 main > div > div > p {
-    font-family: lato-bold;
+    font-family: "Lato Bold", sans-serif;
 }
 
 main > div > div > p:nth-child(2) {
     color: gray;
-    font-family: lato-bold;
-    font-size: 10pt;
+    font-family: "Lato Bold", sans-serif;
+    font-size: 1rem;
 }
 
 input[type="number"] {
@@ -77,11 +79,10 @@ button {
     border: 2px solid var(--border-color);
     border-bottom: 5px solid var(--border-color);
     border-radius: 5px;
-    font-family: Lato-Regular;
+    font-family: "Lato Regular", sans-serif;
     height: 40px;
     margin-bottom: 10px;
     padding: 0 10px;
-    width: auto;
 }
 
 button:hover {
