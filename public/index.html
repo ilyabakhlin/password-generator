@@ -1,89 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Password Generator</title>
-    </head>
-    <body>
-        <main>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <main>
+        <div>
+
+            <p>Password Generator</p>
+
             <div>
-                <label for="password-length">Length:</label>
-                <input id="password-length" name="password-length" type="number" value="16">
+                <label for="length">Length</label>
+                <input type="number" id="password-length" min="8" max="128" value="8">
             </div>
-            <p></p>
-            <button>Generate</button>
-        </main>
-    </body>
-    <script>
-        const SPECIAL_CHARACTERS = ["!", "@", "#", "$", "%", "^", "&", "-", "_", "=", "+", "<", ">", "(", ")", "[", "]", "{", "}", "/"];
 
-        function getCharacterLower() {
-            const number = new BigUint64Array(1);
-            for (const numberRandom of window.crypto.getRandomValues(number)) {
-                const module = numberRandom % 123n;
-                if (module < 97n) {
-                    return getCharacterLower();
-                } else {
-                    return String.fromCharCode(Number(module));
-                }
+            <button>Generate Password</button>
+
+            <div>
+                <p></p>
+            </div>
+
+        </div>
+    </main>
+</body>
+<script>
+    const SPECIAL_CHARACTERS = ["!", "@", "#", "$", "%", "^", "&", "-", "_", "=", "+", "<", ">", "(", ")", "[", "]", "{", "}", "/"];
+
+    function getCharacterLower() {
+        const number = new BigUint64Array(1);
+        for (const numberRandom of window.crypto.getRandomValues(number)) {
+            const module = numberRandom % 123n;
+            if (module < 97n) {
+                return getCharacterLower();
+            } else {
+                return String.fromCharCode(Number(module));
             }
         }
+    }
 
-        function getCharacterUpper() {
-            const number = new BigUint64Array(1);
-            for (const numberRandom of window.crypto.getRandomValues(number)) {
-                const module = numberRandom % 91n;
-                if (module < 65n) {
-                    return getCharacterUpper();
-                } else {
-                    return String.fromCharCode(Number(module));
-                }
+    function getCharacterUpper() {
+        const number = new BigUint64Array(1);
+        for (const numberRandom of window.crypto.getRandomValues(number)) {
+            const module = numberRandom % 91n;
+            if (module < 65n) {
+                return getCharacterUpper();
+            } else {
+                return String.fromCharCode(Number(module));
             }
         }
+    }
 
-        function getNumbers() {
-            const number = new BigUint64Array(1);
-            for (const numberRandom of window.crypto.getRandomValues(number)) {
-                const module = numberRandom % 58n;
-                if (module < 48n) {
-                    return getNumbers();
-                } else {
-                    return String.fromCharCode(Number(module));
-                }
+    function getNumbers() {
+        const number = new BigUint64Array(1);
+        for (const numberRandom of window.crypto.getRandomValues(number)) {
+            const module = numberRandom % 58n;
+            if (module < 48n) {
+                return getNumbers();
+            } else {
+                return String.fromCharCode(Number(module));
             }
         }
+    }
 
-        function getCharacterSpecial() {
-            const number = new BigUint64Array(1);
-            for (const numberRandom of window.crypto.getRandomValues(number)) {
-                return SPECIAL_CHARACTERS[numberRandom % BigInt(SPECIAL_CHARACTERS.length)];
-            }
+    function getCharacterSpecial() {
+        const number = new BigUint64Array(1);
+        for (const numberRandom of window.crypto.getRandomValues(number)) {
+            return SPECIAL_CHARACTERS[numberRandom % BigInt(SPECIAL_CHARACTERS.length)];
         }
+    }
 
-        window.addEventListener("load", () => {
-            window.document.querySelector("button").addEventListener("click", () => {
-                const passwordLength = window.document.querySelector("input#password-length").value;
-                const length = new BigUint64Array(passwordLength);
-                const password = [];
-                for (const number of window.crypto.getRandomValues(length)) {
-                    const bigint = number % 4n;
-                    switch (bigint) {
-                        case 1n:
-                            password.push(getCharacterLower());
-                            break;
-                        case 2n:
-                            password.push(getCharacterUpper());
-                            break;
-                        case 3n:
-                            password.push(getNumbers());
-                            break;
-                        default:
-                            password.push(getCharacterSpecial());
-                            break;
-                    }
+    window.addEventListener("load", () => {
+        window.document.querySelector("button").addEventListener("click", () => {
+            const passwordLength = window.document.querySelector("input#password-length").value;
+            const length = new BigUint64Array(passwordLength);
+            const password = [];
+            for (const number of window.crypto.getRandomValues(length)) {
+                const bigint = number % 4n;
+                switch (bigint) {
+                    case 1n:
+                        password.push(getCharacterLower());
+                        break;
+                    case 2n:
+                        password.push(getCharacterUpper());
+                        break;
+                    case 3n:
+                        password.push(getNumbers());
+                        break;
+                    default:
+                        password.push(getCharacterSpecial());
+                        break;
                 }
-                window.document.querySelector("p").textContent = password.join("");
-            });
+            }
+            window.document.querySelectorAll("p")[1].textContent = password.join("");
         });
-    </script>
+    });
+
+
+    window.document.querySelectorAll("p")[1].addEventListener("click", (event) => {
+        if (event.target.textContent.length > 0) {
+            /* Copy the text inside the text field */
+            navigator.clipboard.writeText(event.target.textContent);
+        }
+    });
+</script>
+
 </html>
