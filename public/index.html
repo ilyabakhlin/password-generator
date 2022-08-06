@@ -90,12 +90,12 @@
                             break;
                     }
                 }
-                window.document.querySelectorAll("p")[1].textContent = password.join("");
+                window.document.querySelector("p").textContent = password.join("");
             });
         });
 
 
-        window.document.querySelectorAll("p")[1].addEventListener("click", (event) => {
+        window.document.querySelector("p").addEventListener("click", (event) => {
             if (event.target.textContent.length > 0) {
                 /* Copy the text inside the text field */
                 navigator.clipboard.writeText(event.target.textContent);
