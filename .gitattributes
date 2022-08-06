@@ -14,5 +14,8 @@
 # Images
 *.ico binary
 
+# Markdown
+*.md text eol=lf
+
 # YAML
 *.yml text eol=lf
