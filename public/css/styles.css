@@ -1,0 +1,85 @@
+@import "fonts.css";
+@import "variables.css";
+
+html {
+    font-size: 16px;
+}
+
+body, button, h1, h2, h3, h4, h5, h6, input {
+    font-family: "Lato Regular", sans-serif;
+}
+
+input, button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    margin: 0;
+    outline: none;
+    padding: 0;
+}
+
+body {
+    background-color: var(--border-color);
+    margin: 0;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    height: 64vh;
+    justify-content: center;
+}
+
+main > div {
+    background-color: var(--white);
+    border: 0.25rem solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    text-align: center;
+    width: 24rem;
+}
+
+main > div > div > p {
+    font-family: "Lato Bold", sans-serif;
+}
+
+main > div > div > p:nth-child(2) {
+    color: gray;
+    font-family: "Lato Bold", sans-serif;
+    font-size: 1rem;
+}
+
+input[type="number"] {
+    border: 2px solid var(--border-color);
+    border-bottom: 5px solid var(--border-color);
+    border-radius: 5px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    padding: 0 10px;
+    width: 50px;
+}
+
+button {
+    border: 2px solid var(--border-color);
+    border-bottom: 5px solid var(--border-color);
+    border-radius: 5px;
+    font-family: "Lato Regular", sans-serif;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+main > div > div:nth-child(4) {
+    min-height: 25px;
+    overflow-wrap: normal;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+}
