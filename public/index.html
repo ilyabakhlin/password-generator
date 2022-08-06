@@ -6,6 +6,10 @@
     </head>
     <body>
         <main>
+            <div>
+                <label for="password-length">Length:</label>
+                <input id="password-length" name="password-length" type="number" value="16">
+            </div>
             <p></p>
             <button>Generate</button>
         </main>
@@ -58,9 +62,10 @@
 
         window.addEventListener("load", () => {
             window.document.querySelector("button").addEventListener("click", () => {
-                const numbers = new BigUint64Array(32);
+                const passwordLength = window.document.querySelector("input#password-length").value;
+                const length = new BigUint64Array(passwordLength);
                 const password = [];
-                for (const number of window.crypto.getRandomValues(numbers)) {
+                for (const number of window.crypto.getRandomValues(length)) {
                     const bigint = number % 4n;
                     switch (bigint) {
                         case 1n:
