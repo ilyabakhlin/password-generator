@@ -5,6 +5,68 @@
         <title>Password Generator</title>
     </head>
     <body>
-        <p>Hello, friend!</p>
+        <main>
+            <p></p>
+            <button>Generate</button>
+        </main>
     </body>
+    <script>
+        function getCharacterLower() {
+            const number = new BigUint64Array(1);
+            for (const numberRandom of window.crypto.getRandomValues(number)) {
+                const module = numberRandom % 123n;
+                if (module < 97n) {
+                    return getCharacterLower();
+                } else {
+                    return String.fromCharCode(Number(module));
+                }
+            }
+        }
+
+        function getCharacterUpper() {
+            const number = new BigUint64Array(1);
+            for (const numberRandom of window.crypto.getRandomValues(number)) {
+                const module = numberRandom % 91n;
+                if (module < 65n) {
+                    return getCharacterUpper();
+                } else {
+                    return String.fromCharCode(Number(module));
+                }
+            }
+        }
+
+        function getNumbers() {
+            const number = new BigUint64Array(1);
+            for (const numberRandom of window.crypto.getRandomValues(number)) {
+                const module = numberRandom % 58n;
+                if (module < 48n) {
+                    return getNumbers();
+                } else {
+                    return String.fromCharCode(Number(module));
+                }
+            }
+        }
+
+        window.addEventListener("load", () => {
+            window.document.querySelector("button").addEventListener("click", () => {
+                const numbers = new BigUint64Array(32);
+                const password = [];
+                for (const number of window.crypto.getRandomValues(numbers)) {
+                    const bigint = number % 3n;
+                    switch (bigint) {
+                        case 1n:
+                            password.push(getCharacterLower());
+                            break;
+                        case 2n:
+                            password.push(getCharacterUpper());
+                            break;
+                        default:
+                            password.push(getNumbers());
+                            break;
+                    }
+                }
+                window.document.querySelector("p").textContent = password.join("");
+            });
+        });
+    </script>
 </html>
