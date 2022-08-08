@@ -17,5 +17,8 @@
 # Markdown
 *.md text eol=lf
 
+# Sass
+*.scss text eol=lf
+
 # YAML
 *.yml text eol=lf
