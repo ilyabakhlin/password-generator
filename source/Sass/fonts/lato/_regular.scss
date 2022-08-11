@@ -1,0 +1,9 @@
+@use "../lato";
+
+@font-face {
+    @include lato.font-face-ext("Lato Regular", 400, url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXjeu.woff2));
+}
+
+@font-face {
+    @include lato.font-face("Lato Regular", 400, url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXg.woff2));
+}
