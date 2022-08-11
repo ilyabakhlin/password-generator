@@ -1,3 +1,46 @@
+@use "colors";
+@use "fonts";
+
 html {
     font-size: 16px;
+}
+
+body {
+    background: colors.$background-light;
+    margin: 0;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+
+    .container {
+        background: colors.$white;
+        border: 0.25rem solid colors.$background-light;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        text-align: center;
+        width: 24rem;
+
+        div {
+            margin: 1rem;
+        }
+
+        .generate-action {
+            button {
+                background: colors.$white;
+                border: 2px solid colors.$background-light;
+                border-bottom: 0.25rem solid colors.$background-light;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                font-family: "Lato Regular", sans-serif;
+                font-size: 1em;
+                height: 3rem;
+                padding: 0 1rem;
+            }
+        }
+    }
 }
