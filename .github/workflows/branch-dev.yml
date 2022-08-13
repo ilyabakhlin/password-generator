@@ -2,6 +2,9 @@ jobs:
   build-css:
     name: Build CSS
     uses: ./.github/workflows/job-sass.yml
+  build-js:
+    name: Build JavaScript
+    uses: ./.github/workflows/job-webpack.yml
 on:
   push:
     branches:

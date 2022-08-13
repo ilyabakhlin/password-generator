@@ -1,0 +1,26 @@
+jobs:
+  webpack:
+    container: node:lts-alpine
+    name: Webpack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm install
+      - name: Webpack
+        run: webpack -c ./webpack.js
+      - name: Artifact JS
+        if: ${{ inputs.artifact }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: js
+          path: ./public/js/
+          retention-days: 8
+on:
+  workflow_call:
+    inputs:
+      artifact:
+        default: false
+        required: false
+        type: boolean
