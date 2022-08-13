@@ -1,9 +1,6 @@
 # CSS
 *.css text eol=lf
 
-# Fonts
-*.ttf binary
-
 # Git
 .gitattributes text eol=lf export-ignore
 .gitignore text eol=lf export-ignore
@@ -14,11 +11,20 @@
 # Images
 *.ico binary
 
+# JavaScript
+*.js text eol=lf
+
+# JSON
+*.json text eol=lf
+
 # Markdown
 *.md text eol=lf
 
 # Sass
 *.scss text eol=lf
+
+# TypeScript
+*.ts text eol=lf
 
 # YAML
 *.yml text eol=lf
