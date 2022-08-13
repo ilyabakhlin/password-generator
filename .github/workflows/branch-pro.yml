@@ -1,5 +1,6 @@
 jobs:
   build:
+    name: Build CSS
     uses: ./.github/workflows/job-build-css.yml
     with:
       artifact: true
