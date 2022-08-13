@@ -2,7 +2,10 @@ jobs:
   build-css:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/dev.yml
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        uses: ./.github/workflows/dev.yml
   deploy:
     environment:
       name: github-pages
@@ -31,7 +34,7 @@ jobs:
 on:
   push:
     branches:
-      - "pro"
+      - pro
 permissions:
   contents: read
   id-token: write
