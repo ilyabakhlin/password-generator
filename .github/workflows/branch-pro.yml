@@ -1,7 +1,7 @@
 jobs:
-  build:
+  build-css:
     name: Build CSS
-    uses: ./.github/workflows/job-build-css.yml
+    uses: ./.github/workflows/job-sass.yml
     with:
       artifact: true
   deploy:
@@ -9,7 +9,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     needs:
-      - build
+      - build-css
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

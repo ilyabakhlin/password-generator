@@ -1,6 +1,7 @@
 jobs:
   css:
     container: quorrax/sass:latest
+    name: Sass
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

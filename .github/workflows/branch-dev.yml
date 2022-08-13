@@ -1,7 +1,7 @@
 jobs:
-  build:
+  build-css:
     name: Build CSS
-    uses: ./.github/workflows/job-build-css.yml
+    uses: ./.github/workflows/job-sass.yml
 on:
   push:
     branches:
