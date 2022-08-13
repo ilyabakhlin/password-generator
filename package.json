@@ -4,5 +4,8 @@
         "webpack-cli": "^4.10.0"
     },
     "license": "GPL-3.0-or-later",
-    "name": "password-generator"
+    "name": "password-generator",
+    "scripts": {
+        "build": "webpack -c ./webpack.js"
+    }
 }

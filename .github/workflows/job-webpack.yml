@@ -9,7 +9,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Webpack
-        run: webpack -c ./webpack.js
+        run: npm run build
       - name: Artifact JS
         if: ${{ inputs.artifact }}
         uses: actions/upload-artifact@v3
