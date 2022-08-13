@@ -1,5 +1,5 @@
 jobs:
-  build-css:
+  css:
     container: quorrax/sass:latest
     runs-on: ubuntu-latest
     steps:
