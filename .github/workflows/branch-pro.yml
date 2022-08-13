@@ -7,7 +7,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://password-generator.ilyabakhlin.com/
     needs:
       - build-css
     runs-on: ubuntu-latest
