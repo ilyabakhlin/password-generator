@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "module": "ES6",
+        "strict": true,
+        "target": "ES5"
+    }
+}
