@@ -1,6 +1,6 @@
 jobs:
   build:
-    uses: ./.github/workflows/build-css.yml
+    uses: ./.github/workflows/job-build-css.yml
     with:
       artifact: true
   deploy:
