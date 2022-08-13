@@ -1,6 +1,8 @@
 jobs:
-  build-css:
+  build:
     uses: ./.github/workflows/build-css.yml
+    with:
+      artifact: true
   deploy:
     environment:
       name: github-pages
@@ -16,8 +18,6 @@ jobs:
         with:
           name: css
           path: ./public/css/
-      - name: List the directory's content
-        run: pwd && ls -ahl ./ && id && echo ${HOME}
       - name: Setup pages
         uses: actions/configure-pages@v1
       - name: Upload artifact
