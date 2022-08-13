@@ -1,4 +1,8 @@
 jobs:
+  build-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/dev.yml
   deploy:
     environment:
       name: github-pages
