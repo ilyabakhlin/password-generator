@@ -4,5 +4,8 @@
 # PhpStorm
 /.idea/
 
+# Project
+/public/js/
+
 # VS Code
 /.vscode/
