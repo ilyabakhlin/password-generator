@@ -8,6 +8,7 @@ jobs:
       - name: Transpile CSS
         run: sass --no-source-map --style compressed ./source/Sass/:./public/css/
       - name: Artifact CSS
+        if: ${{ inputs.artifact }}
         uses: actions/upload-artifact@v3
         with:
           name: css
@@ -15,3 +16,8 @@ jobs:
           retention-days: 8
 on:
   workflow_call:
+    inputs:
+      artifact:
+        default: false
+        required: false
+        type: boolean
