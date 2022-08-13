@@ -18,4 +18,4 @@ on:
   push:
     branches:
       - dev
-  workflow_run:
+  workflow_call:
