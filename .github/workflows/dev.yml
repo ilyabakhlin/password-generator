@@ -2,20 +2,11 @@ jobs:
   build-css:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Sass
-        run: curl -Ls https://github.com/sass/dart-sass/releases/download/1.54.3/dart-sass-1.54.3-linux-x64.tar.gz | tar -C /usr/local/bin/ --strip-components 1 -v -x -z dart-sass/sass && chmod -v 755 /usr/local/bin/sass
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Transpile CSS
-        run: sass --no-source-map --style compressed ./source/Sass/:./public/css/
-      - name: Artifact CSS
-        uses: actions/upload-artifact@v3
-        with:
-          name: css
-          path: ./public/css/
-          retention-days: 8
+      - name: Build CSS
+        uses: ./.github/workflows/build-css.yml
 on:
   push:
     branches:
       - dev
-  workflow_call:
