@@ -4,12 +4,19 @@ jobs:
     uses: ./.github/workflows/job-sass.yml
     with:
       artifact: true
+  build-js:
+    name: Build JavaScript
+    uses: ./.github/workflows/job-webpack.yml
+    with:
+      artifact: true
   deploy:
     environment:
       name: github-pages
       url: https://password-generator.ilyabakhlin.com/
+    name: Deploy
     needs:
       - build-css
+      - build-js
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,6 +26,11 @@ jobs:
         with:
           name: css
           path: ./public/css/
+      - name: Download JavaScript
+        uses: actions/download-artifact@v3
+        with:
+          name: js
+          path: ./public/js/
       - name: Setup pages
         uses: actions/configure-pages@v1
       - name: Upload artifact
