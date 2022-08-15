@@ -53,21 +53,29 @@ main {
                 justify-content: space-between;
 
                 input {
-                    border: 2px solid colors.$background-light;
-                    border-bottom: 0.25rem solid colors.$background-light;
-                    border-radius: 0.25rem;
                     font-family: "Lato Regular", sans-serif;
-                    height: 3rem;
-                    padding: 0 1rem;
-                    width: 2rem;
+                    outline: none;
 
                     &[type=checkbox] {
-                        height: 1rem;
-                        width: 1rem;
+                        accent-color: colors.$background-light;
+                        height: 1.25rem;
+                        margin: 0.1rem;
+                        width: 1.25rem;
                     }
 
                     &[type=number] {
                         -moz-appearance: textfield;
+                        border: none;
+                        border-bottom: 0.05rem solid colors.$black;
+                        font-size: 1rem;
+                        padding: 0 0.18rem;
+                        text-align: right;
+                        width: 2.5rem;
+                    }
+
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
                     }
                 }
 
