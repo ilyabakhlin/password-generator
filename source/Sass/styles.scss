@@ -29,7 +29,7 @@ main {
             margin: 1rem;
         }
 
-        .generate-action {
+        .generate-button {
             button {
                 background: colors.$white;
                 border: 2px solid colors.$background-light;
@@ -43,13 +43,33 @@ main {
             }
         }
 
-        .input {
-            input {
-                font-family: "Lato Regular", sans-serif;
-            }
+        .inputs {
+            .input {
+                align-items: center;
+                display: flex;
+                justify-content: center;
 
-            label {
-                font-family: "Lato Regular", sans-serif;
+                input {
+                    border: 2px solid colors.$background-light;
+                    border-bottom: 0.25rem solid colors.$background-light;
+                    border-radius: 0.25rem;
+                    font-family: "Lato Regular", sans-serif;
+                    height: 3rem;
+                    padding: 0 1rem;
+                    width: 2rem;
+
+                    &[type=checkbox] {
+                        width: 1rem;
+                    }
+
+                    &[type=number] {
+                        -moz-appearance: textfield;
+                    }
+                }
+
+                label {
+                    font-family: "Lato Regular", sans-serif;
+                }
             }
         }
 

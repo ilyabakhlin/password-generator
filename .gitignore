@@ -5,6 +5,7 @@
 /.idea/
 
 # Project
+/public/css/
 /public/js/
 
 # VS Code

@@ -7,6 +7,8 @@
     "license": "GPL-3.0-or-later",
     "name": "password-generator",
     "scripts": {
-        "build": "webpack -c ./webpack.js"
+        "build": "webpack --config ./webpack.js",
+        "dev": "webpack --config ./webpack.js --mode development",
+        "watch": "webpack --config ./webpack.js --mode development --watch"
     }
 }
