@@ -4,7 +4,6 @@
 # Git
 .gitattributes text eol=lf export-ignore
 .gitignore text eol=lf export-ignore
-.gitkeep text eol=lf export-ignore
 
 # HTML
 *.html text eol=lf
