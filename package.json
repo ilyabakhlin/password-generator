@@ -10,6 +10,7 @@
     "scripts": {
         "build": "webpack --config ./webpack.js",
         "dev": "webpack --config ./webpack.js --mode development",
+        "test": "jest",
         "watch": "webpack --config ./webpack.js --mode development --watch"
     }
 }
