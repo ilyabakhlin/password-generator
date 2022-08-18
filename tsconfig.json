@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "alwaysStrict": true,
+        "esModuleInterop": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "module": "ES6",

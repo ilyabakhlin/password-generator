@@ -1,11 +1,18 @@
 jobs:
+  test-js:
+    name: Test JavaScript
+    uses: ./.github/workflows/job-jest.yml
   build-css:
     name: Build CSS
+    needs:
+      - test-js
     uses: ./.github/workflows/job-sass.yml
     with:
       artifact: true
   build-js:
     name: Build JavaScript
+    needs:
+      - test-js
     uses: ./.github/workflows/job-webpack.yml
     with:
       artifact: true
